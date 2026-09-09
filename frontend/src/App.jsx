@@ -7,7 +7,11 @@ import {
 } from 'lucide-react';
 import logoImg from './assets/logo.png';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8000';
+const API_BASE = import.meta.env.VITE_API_BASE || (
+  typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://127.0.0.1:8000'
+    : 'https://saksham-screener.onrender.com'
+);
 
 /* ── Tiny helpers ─────────────────────────────────────────────────────────── */
 const ConfidenceBar = ({ value, label }) => (
