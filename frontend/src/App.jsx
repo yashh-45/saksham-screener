@@ -18,7 +18,9 @@ import {
   RefreshCw
 } from 'lucide-react';
 
-const API_BASE = 'http://127.0.0.1:8000';
+// In production (Vercel), VITE_API_BASE is set to the Render backend URL.
+// In local dev this falls back to localhost (the Vite proxy handles it).
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8000';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('screener');
