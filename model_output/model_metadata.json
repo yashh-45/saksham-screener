@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0",
+  "backbone": "MobileNetV2 ImageNet pretrained fine-tuned",
+  "class_names": [
+    "Corrected",
+    "Normal",
+    "Reversal"
+  ],
+  "dataset_description": "Gambo Dyslexia Handwriting Dataset. 3 classes: Corrected (over-correction), Normal (typical), Reversal (letter reversal). English handwriting images. Full dataset: Train ~151,649 | Test ~56,723. This model trained on a stratified subset: 2000 samples/class train, 600 samples/class test. Source: Kaggle - educational/research use.",
+  "train_samples_used": 6000,
+  "test_samples_used": 1800,
+  "train_class_distribution": {
+    "Corrected": 2000,
+    "Normal": 2000,
+    "Reversal": 2000
+  },
+  "test_class_distribution": {
+    "Corrected": 600,
+    "Normal": 600,
+    "Reversal": 600
+  },
+  "validation_accuracy": 0.7706,
+  "per_class_metrics": {
+    "Corrected": {
+      "precision": 0.9799,
+      "recall": 0.8133,
+      "f1_score": 0.8889,
+      "support": 600
+    },
+    "Normal": {
+      "precision": 0.6223,
+      "recall": 0.9667,
+      "f1_score": 0.7572,
+      "support": 600
+    },
+    "Reversal": {
+      "precision": 0.8622,
+      "recall": 0.5317,
+      "f1_score": 0.6577,
+      "support": 600
+    }
+  },
+  "confusion_matrix": [
+    [
+      488,
+      78,
+      34
+    ],
+    [
+      3,
+      580,
+      17
+    ],
+    [
+      7,
+      274,
+      319
+    ]
+  ],
+  "training_epochs_run": 13,
+  "best_val_accuracy_during_training": 0.7706,
+  "training_notes": "IMPORTANT: validation_accuracy is on the held-out test subset NEVER seen during training. Report this number, not training accuracy. This tool is a screening aid, not a clinical diagnostic instrument.",
+  "trained_at": "2026-09-09T07:23:25Z"
+}

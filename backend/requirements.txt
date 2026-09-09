@@ -1,0 +1,10 @@
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0
+python-multipart>=0.0.6
+torch>=2.0.0
+torchvision>=0.15.0
+pillow>=9.0.0
+reportlab>=4.0.0
+supabase>=2.0.0
+python-dotenv>=1.0.0
+scikit-learn>=1.0.0

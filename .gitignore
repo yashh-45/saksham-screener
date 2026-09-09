@@ -1,0 +1,40 @@
+# ── Secrets ────────────────────────────────────────────────────────────────────
+.env
+# Keep .env.example (safe template with no real values)
+
+# ── Python ─────────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Node / Frontend ─────────────────────────────────────────────────────────────
+node_modules/
+frontend/dist/     # Production build output — not needed in repo; run 'npm run build'
+.vite/
+*.local
+
+# ── Large Dataset Files ─────────────────────────────────────────────────────────
+# Only the extracted training images are excluded (too large for GitHub).
+# The model weights (saksham_model.pth) ARE committed via Git LFS.
+dataset/extracted/
+dataset/archive/
+
+# ── Runtime / Local State ───────────────────────────────────────────────────────
+*.log
+backend/saksham.db      # Local SQLite DB — regenerated on first run
+saksham.db
+
+# ── Test artifacts ──────────────────────────────────────────────────────────────
+test_report.pdf
+test_report_check.pdf
+
+# ── OS / IDE ────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/settings.json
