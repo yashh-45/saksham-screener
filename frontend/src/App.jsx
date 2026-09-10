@@ -246,15 +246,6 @@ const Tag = ({ children, type = 'grey' }) => (
         </div>
       </header>
 
-      {/* ── Sticky banners ──────────────────────────────────────────────── */}
-      <div className="disclaimer-banner" role="alert" aria-live="polite">
-        <ShieldAlert size={15} aria-hidden />
-        <span>
-          <strong>Screening Aid Only</strong> — Not a clinical diagnostic instrument.
-          Results must be interpreted by a qualified educational psychologist or special educator.
-        </span>
-      </div>
-
       {statusMessage && (
         <div className={`status-toast ${statusMessage.type}`} role="status">
           {statusMessage.text}
