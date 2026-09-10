@@ -6,7 +6,7 @@ from datetime import datetime
 class StudentCreate(BaseModel):
     name: str
     class_section: str
-    age_years: Optional[int] = Field(None, ge=4, le=18, description="Student age in years (4–18)")
+    age_years: Optional[int] = Field(None, ge=1, le=120, description="Student age in years")
 
 
 class StudentOut(BaseModel):

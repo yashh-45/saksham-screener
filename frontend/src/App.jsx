@@ -254,10 +254,6 @@ const Tag = ({ children, type = 'grey' }) => (
           Results must be interpreted by a qualified educational psychologist or special educator.
         </span>
       </div>
-      <div className="dataset-notice">
-        <strong>Dataset Note:</strong> Trained on Gambo Dyslexia Dataset (Kaggle) — image labels not independently validated by RCI-certified professionals.
-        77.1% concordance reflects label agreement, not clinical accuracy.
-      </div>
 
       {statusMessage && (
         <div className={`status-toast ${statusMessage.type}`} role="status">
@@ -322,21 +318,21 @@ const Tag = ({ children, type = 'grey' }) => (
 
               {/* New student modal inline */}
               {showNewStudentModal && (
-                <div style={{ padding: '1rem', background: 'var(--bg-card-subtle)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', marginBottom: '1rem', animation: 'fadeSlideIn 0.2s ease' }}>
+                <form onSubmit={handleCreateStudent} style={{ padding: '1rem', background: 'var(--bg-card-subtle)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', marginBottom: '1rem', animation: 'fadeSlideIn 0.2s ease' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.65rem' }}>
                     <span style={{ fontWeight: 700, fontSize: '0.88rem' }}>Register New Student</span>
-                    <button onClick={() => setShowNewStudentModal(false)}><X size={16} color="var(--text-muted)" /></button>
+                    <button type="button" onClick={() => setShowNewStudentModal(false)}><X size={16} color="var(--text-muted)" /></button>
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 90px 75px', gap: '0.5rem', marginBottom: '0.65rem' }}>
-                    <input id="student-name" type="text" className="form-input" placeholder="Full name" value={newStudentName} onChange={(e) => setNewStudentName(e.target.value)} autoFocus />
+                    <input id="student-name" type="text" className="form-input" placeholder="Full name" value={newStudentName} onChange={(e) => setNewStudentName(e.target.value)} required autoFocus />
                     <input id="student-class" type="text" className="form-input" placeholder="Class" value={newStudentClass} onChange={(e) => setNewStudentClass(e.target.value)} />
-                    <input id="student-age" type="number" className="form-input" placeholder="Age" min="4" max="18" value={newStudentAge} onChange={(e) => setNewStudentAge(e.target.value)} />
+                    <input id="student-age" type="number" className="form-input" placeholder="Age" min="1" max="120" value={newStudentAge} onChange={(e) => setNewStudentAge(e.target.value)} />
                   </div>
                   <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
-                    <button onClick={() => setShowNewStudentModal(false)} style={{ padding: '0.38rem 0.75rem', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Cancel</button>
-                    <button id="save-student-btn" onClick={handleCreateStudent} style={{ padding: '0.38rem 0.9rem', background: 'var(--primary)', color: '#fff', borderRadius: 'var(--radius-sm)', fontSize: '0.82rem', fontWeight: 700 }}>Save Student</button>
+                    <button type="button" onClick={() => setShowNewStudentModal(false)} style={{ padding: '0.38rem 0.75rem', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Cancel</button>
+                    <button type="submit" id="save-student-btn" style={{ padding: '0.38rem 0.9rem', background: 'var(--primary)', color: '#fff', borderRadius: 'var(--radius-sm)', fontSize: '0.82rem', fontWeight: 700 }}>Save Student</button>
                   </div>
-                </div>
+                </form>
               )}
 
               <div className="section-divider" />
