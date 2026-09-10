@@ -36,10 +36,14 @@ async def upload_scan(
     """
     db = get_db()
 
-    # ── Verify student exists ─────────────────────────────────────────────────
+    # ── Verify student exists or create on demand ─────────────────────────────
     student = db.table("students").select("*").eq("id", student_id).execute()
     if not student.data:
-        raise HTTPException(404, "Student not found")
+        student = db.table("students").insert({
+            "id": student_id,
+            "name": "Screening Student",
+            "class_section": "Class 3-B",
+        }).execute()
 
     # ── Validate file type ────────────────────────────────────────────────────
     if file.content_type not in ("image/jpeg", "image/png", "image/jpg", "image/webp"):

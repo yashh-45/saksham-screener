@@ -3,10 +3,12 @@ import json
 import sqlite3
 import uuid
 from datetime import datetime
+from pathlib import Path
 from app.config import SUPABASE_URL, SUPABASE_KEY
 
 _BACKEND_DIR = Path(__file__).resolve().parent.parent.parent
 DB_FILE = Path(os.getenv("DB_PATH", str(_BACKEND_DIR / "saksham.db")))
+DB_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 _client = None
 
